@@ -1,0 +1,27 @@
+1. Add a function to create two versions of default 'cnModels'. First
+version is all possibilities from 0 to 5 copies. Second version
+imposes the strong prior that you can't both gain and lose the same
+segment in different clones. 
+
+2. Make the second version of 'cnModels' the default input to the
+'seekClones' function. 
+
+3. Add a default set of psi vectors as the input to 'seekClones'.
+
+4. Make the 'pars' argument to 'seekClones' a proper object, and
+supply a default value.
+
+5. Make a function to display psi vectors (projected onto the
+2-simplex, and flattened to the Euclidean plane). Think about allowing
+the 3-simplex for visualization.
+
+6. Make all the arguments to the 'generateTumorData' function into a
+proper object with a friendly constructor that assigns sensible
+default values.
+
+7. Change the simulated copy number data to carry along the segment
+locations and not just the "seg" indirect index.
+
+8. Think about changing "getClones" to a bracket operator (like [i] or
+[[i]] depending on what makes the most sense).
+

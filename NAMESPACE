@@ -1,0 +1,44 @@
+###
+### NAMESPACE
+###
+
+### convert base functions or S3 methods into S4 methods
+import(methods)
+importFrom("graphics", "plot", "hist")
+#exportMethods("plot", "hist") # come from 'graphics'
+#exportMethods("summary")      # comes from 'base'
+
+### other imported functions
+importFrom("quantmod", "findPeaks")  # used in "seqSeg" in '03-utilities.R'
+importFrom("gtools", "rdirichlet", "ddirichlet") # used in '04-algorithms.R'
+importFrom("graphics", "par", "segments")  # used in "plotTumorData",
+importFrom("stats",
+           "rbeta", "dbeta", "rbinom", "dbinom", "rnorm", "dnorm",
+           "rmultinom", "runif", "dgeom",
+           "density", "median", "sd", "na.omit")
+
+### dealing with simplices
+importFrom(combinat, "combn")    # used for combinations of psi-values
+importFrom(combinat, "xsimplex") # used for generateSimplex
+export("sampleSimplex", "generateSimplex")
+
+### weight vectors
+exportClasses("WeightVector")
+export("WeightVector")
+
+### tumors
+exportClasses("Tumor")
+export("Tumor", "getClone")
+export("generateTumorData", "plotTumorData")
+export("tumorGen", "dataGen", "runAlg") # deprecated
+
+### algorithm.R
+export("seekClones")
+
+####################### IN PROGRESS ######################
+### needed for simulations; currently internal
+# exportClasses("Clone")
+# export("Clone")
+
+
+
