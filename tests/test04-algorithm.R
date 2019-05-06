@@ -17,6 +17,7 @@ paramSets <- data.frame(nu = rep(c(0, 100, 100)),
 
 #########################################
 ### Simulate the data sets.
+suppressWarnings( RNGversion("3.5.0") )
 set.seed(20248)
 simData <- list()
 for (psi in psiSets) {
