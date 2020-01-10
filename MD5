@@ -1,4 +1,4 @@
-2c70ded5da5aacb3ad69bed8bcd3018f *DESCRIPTION
+9f7828d912f26d19f77d4f5682cb1266 *DESCRIPTION
 a7ad01ece66d20ba32ebb35a30e2dfea *NAMESPACE
 b3170f2c3ca94d1d863b9f5f52f88fb6 *R/00-generics.R
 44b2242d3849273e60a39d5680d0192c *R/01-cloneMaker.R
@@ -21,7 +21,7 @@ cc7f5cc34c6d4e92a5b45a009d07fa29 *inst/auxiliary/simgen.R
 5f9113d284ca409bae247995c5115b04 *inst/auxiliary/stash.Rda
 f25713fc602c2599c507e8b344e8d918 *inst/doc/CloneSeeker.R
 c055ef2b2ed2b58631c9c56cdbcdda00 *inst/doc/CloneSeeker.Rnw
-4e27263c6a272748f01844e81f063f83 *inst/doc/CloneSeeker.pdf
+06b730f2859e8ff17943b371831e6598 *inst/doc/CloneSeeker.pdf
 b784a00b476617a2567071c8be8f51ae *man/01-simplex.Rd
 d34f0520983f75642b0cd3f9d649448c *man/02-WeightVector.Rd
 1edaf75405eb7b017658e576b5b90c81 *man/03-Tumor.Rd
@@ -31,8 +31,8 @@ fe3d3e7a35b35b12349bffc39451aa2d *tests/test01-Simplex.R
 3cde1e12d4ecf2b581d0908a93517b3e *tests/test01-Simplex.Rout.save
 a923c16233d54063efd60e5b84f3d4bb *tests/test02-WV.R
 3193b5994985b7787c98d8ea41d9ac60 *tests/test02-WV.Rout.save
-faddf9362fa044e786e40ff364bc49be *tests/test03-simulate.R
-9e72039367c5b0fda87101fd7be7207c *tests/test03-simulate.Rout.save
+fb3a3bddc0f73c1d0a990483ff93d5e7 *tests/test03-simulate.R
+e37dee2eb37079e6388c1709b6521cb9 *tests/test03-simulate.Rout.save
 80347573e15157b501f3b653828d9484 *tests/test04-algorithm.R
 195a10b81efe07c4acf490e6cd83cd7d *tests/test04-algorithm.Rout.save
 c055ef2b2ed2b58631c9c56cdbcdda00 *vignettes/CloneSeeker.Rnw
