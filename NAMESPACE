@@ -10,7 +10,7 @@ importFrom("graphics", "plot", "hist")
 
 ### other imported functions
 importFrom("quantmod", "findPeaks")  # used in "seqSeg" in '03-utilities.R'
-importFrom("gtools", "rdirichlet", "ddirichlet") # used in '04-algorithms.R'
+importFrom("mc2d", "rdirichlet", "ddirichlet") # used in '04-algorithms.R'
 importFrom("graphics", "par", "segments")  # used in "plotTumorData",
 importFrom("stats",
            "rbeta", "dbeta", "rbinom", "dbinom", "rnorm", "dnorm",
