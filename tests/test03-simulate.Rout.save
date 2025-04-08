@@ -1,7 +1,7 @@
 
-R version 3.6.0 (2019-04-26) -- "Planting of a Tree"
-Copyright (C) 2019 The R Foundation for Statistical Computing
-Platform: x86_64-w64-mingw32/x64 (64-bit)
+R version 4.4.3 (2025-02-28 ucrt) -- "Trophy Case"
+Copyright (C) 2025 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -219,21 +219,21 @@ $cn.data
 $seq.data
 [1] 1000000       8
 
-> summary(dataset$cn.data)
-      chr              seg              LRR                  BAF        
- Min.   : 1.000   Min.   :  1.00   Min.   :-0.1553511   Min.   :0.2858  
- 1st Qu.: 4.000   1st Qu.: 89.25   1st Qu.:-0.0024160   1st Qu.:0.4994  
- Median : 9.000   Median :177.50   Median : 0.0005532   Median :0.5000  
- Mean   : 9.672   Mean   :177.50   Mean   : 0.0008677   Mean   :0.4994  
- 3rd Qu.:14.000   3rd Qu.:265.75   3rd Qu.: 0.0029187   3rd Qu.:0.5005  
- Max.   :24.000   Max.   :354.00   Max.   : 0.1192170   Max.   :0.7142  
-       X                Y             markers    
- Min.   :0.3997   Min.   :0.4039   Min.   : 832  
- 1st Qu.:0.9942   1st Qu.:0.9942   1st Qu.:1459  
- Median :1.0010   Median :1.0009   Median :1698  
- Mean   :1.0017   Mean   :1.0044   Mean   :1695  
- 3rd Qu.:1.0065   3rd Qu.:1.0067   3rd Qu.:1920  
- Max.   :1.5935   Max.   :1.6204   Max.   :2714  
+> summary(as.matrix(dataset$cn.data), digits = 3)
+      chr             seg             LRR                 BAF       
+ Min.   : 1.00   Min.   :  1.0   Min.   :-0.155351   Min.   :0.286  
+ 1st Qu.: 4.00   1st Qu.: 89.2   1st Qu.:-0.002416   1st Qu.:0.499  
+ Median : 9.00   Median :177.5   Median : 0.000553   Median :0.500  
+ Mean   : 9.67   Mean   :177.5   Mean   : 0.000868   Mean   :0.499  
+ 3rd Qu.:14.00   3rd Qu.:265.8   3rd Qu.: 0.002919   3rd Qu.:0.501  
+ Max.   :24.00   Max.   :354.0   Max.   : 0.119217   Max.   :0.714  
+       X               Y            markers    
+ Min.   :0.400   Min.   :0.404   Min.   : 832  
+ 1st Qu.:0.994   1st Qu.:0.994   1st Qu.:1459  
+ Median :1.001   Median :1.001   Median :1698  
+ Mean   :1.002   Mean   :1.004   Mean   :1695  
+ 3rd Qu.:1.007   3rd Qu.:1.007   3rd Qu.:1920  
+ Max.   :1.594   Max.   :1.620   Max.   :2714  
 > summary(dataset$seq.data[,-(6:7)]) # note that all mut.id are NA's since there were no mutations
       chr              seg            mut.id        refCounts     
  Min.   : 1.000   Min.   :  1.0   Min.   : NA     Min.   : 10.00  
@@ -257,4 +257,4 @@ $seq.data
 > 
 > proc.time()
    user  system elapsed 
-   29.9     0.6    30.5 
+  21.17    0.73   21.75 

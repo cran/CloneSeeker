@@ -1,4 +1,4 @@
-a25de744281521326a7c66f1d11b7796 *DESCRIPTION
+dfafaa6015571b515ed2f0f92eed35b9 *DESCRIPTION
 984ea7d75cb03e2d4800c86bc07b47aa *NAMESPACE
 b3170f2c3ca94d1d863b9f5f52f88fb6 *R/00-generics.R
 33a16ce7dc7fe041c86c2af048e9f81a *R/01-cloneMaker.R
@@ -6,9 +6,9 @@ b3170f2c3ca94d1d863b9f5f52f88fb6 *R/00-generics.R
 958179530323b5fec125dde65461ea0c *R/03-utlilities.R
 031af709d85b3d2ec759eab39e0eb45f *R/04-algorithm.R
 6f2c5f09fb9067c9e5e1f934029731f0 *R/oldNames.R
-96eadecc96c844a89ab29428df8b000b *R/sysdata.rda
+a60c6b1ca5acd66b736c834f088cce6b *R/sysdata.rda
 7b79a5be234d5b2d1c66a2c21d6084f4 *TODO
-e1ac91d3eb374519891c2bca32a07ba1 *build/vignette.rds
+ec0a0f0fa51a2b3433a0ba94d54e4cb2 *build/vignette.rds
 56228c9a5f679436321e11e6d8ceb811 *inst/auxiliary/README.md
 4a15fcf4afa7c063918f36f4eeee8268 *inst/auxiliary/assessing.R
 5d77ceac66948c92b8978e67502dd4ba *inst/auxiliary/chlens.txt
@@ -21,7 +21,7 @@ cc7f5cc34c6d4e92a5b45a009d07fa29 *inst/auxiliary/simgen.R
 5f9113d284ca409bae247995c5115b04 *inst/auxiliary/stash.Rda
 f25713fc602c2599c507e8b344e8d918 *inst/doc/CloneSeeker.R
 c055ef2b2ed2b58631c9c56cdbcdda00 *inst/doc/CloneSeeker.Rnw
-081cf0d1ab8b0b347dd66286b6116563 *inst/doc/CloneSeeker.pdf
+b94dd16355b260516b6c7379992e0a5c *inst/doc/CloneSeeker.pdf
 b784a00b476617a2567071c8be8f51ae *man/01-simplex.Rd
 d34f0520983f75642b0cd3f9d649448c *man/02-WeightVector.Rd
 1edaf75405eb7b017658e576b5b90c81 *man/03-Tumor.Rd
@@ -31,8 +31,8 @@ fe3d3e7a35b35b12349bffc39451aa2d *tests/test01-Simplex.R
 3cde1e12d4ecf2b581d0908a93517b3e *tests/test01-Simplex.Rout.save
 a923c16233d54063efd60e5b84f3d4bb *tests/test02-WV.R
 3193b5994985b7787c98d8ea41d9ac60 *tests/test02-WV.Rout.save
-fb3a3bddc0f73c1d0a990483ff93d5e7 *tests/test03-simulate.R
-e37dee2eb37079e6388c1709b6521cb9 *tests/test03-simulate.Rout.save
-80347573e15157b501f3b653828d9484 *tests/test04-algorithm.R
-195a10b81efe07c4acf490e6cd83cd7d *tests/test04-algorithm.Rout.save
+7d11fcf8a55c111661e7aa760f356a11 *tests/test03-simulate.R
+67f570a23116623af9d9ab8241c04087 *tests/test03-simulate.Rout.save
+e85794bf3d09e4a2a16d388c323b9ad8 *tests/test04-algorithm.R
+68e591f633292358e7b52b5f04758117 *tests/test04-algorithm.Rout.save
 c055ef2b2ed2b58631c9c56cdbcdda00 *vignettes/CloneSeeker.Rnw

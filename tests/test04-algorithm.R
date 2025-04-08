@@ -91,8 +91,12 @@ for (J in testset) {
     print(data.frame(etaA = ra$etaA, etaB = ra$etaB))
     cat("indices:\n")
     print(lapply(ra$indices, summary))
-    cat("filtered data:\n")
-    print(lapply(ra$filtered.data, summary))
+    cat("filtered data:\nMutations:\n")
+    print(summary(ra$filtered.data$mutdata.filt))
+    if (J != 5) {
+      cat("CNVs:\n")
+      print(summary(as.matrix(ra$filtered.data$cndata.filt), digits = 2))
+    }
     print(summary(ra$mutated))
     cat("posteriors\n")
     print(summary(ra$psiPosts))
