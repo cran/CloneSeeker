@@ -1,5 +1,17 @@
 library(CloneSeeker)
 
+fixSmry <- function(X, D = NULL, ...) {
+  if (!is.null(D)) {
+    S <- summary(X, digits = D, ...)
+  } else {
+    S <- summary(X, ...)
+  }
+  W <- grep("NA's", S)
+  if (any(W)) S[W] <- gsub("NA's", "NAs", S[W])
+  names(S) <- gsub("NA's", "NAs", names(S))
+  S
+}
+
 dataPars <- list(snps.seq = 1000000,
                  snps.cgh = 600000,
                  mu = 70,
@@ -20,8 +32,8 @@ summary(clone$seq)
 ### Mutations only? with normal contamination
 tumor <- Tumor(psis, rounds = 400, nu = 100, pcnv = 0, norm.contam = TRUE)
 clone <- getClone(tumor, 1)
-summary(clone$cn)  # why is the parent index missing?
-summary(clone$seq) # this looks like a bug to me.
+fixSmry(clone$cn)  # why is the parent index missing?
+fixSmry(clone$seq) # this looks like a bug to me.
 
 ### CNV and Mutations, without normal contamination
 tumor <- Tumor(psis, rounds = 400, nu = 100, pcnv = 0.5, norm.contam = FALSE)
@@ -32,13 +44,13 @@ summary(clone$seq)
 ### CNV and Mutations, with normal contamination
 tumor <- Tumor(psis, rounds = 400, nu = 100, pcnv = 0.5, norm.contam = TRUE)
 clone <- getClone(tumor, 1)
-summary(clone$cn)
-summary(clone$seq) # this looks like a bug to me.
+fixSmry(clone$cn)
+fixSmry(clone$seq) # this looks like a bug to me.
 
 ### CNV-only, with normal contamination
 tumor <- Tumor(psis, rounds = 400, nu = 0, pcnv = 1, norm.contam = TRUE) 
 clone <- getClone(tumor, 1)
-summary(clone$cn)
+fixSmry(clone$cn)
 summary(clone$seq) # this is correct
 
 ### CNV-only, without normal contamination
@@ -62,7 +74,8 @@ names(dataset)
 lapply(dataset, class)
 lapply(dataset, dim)
 summary(as.matrix(dataset$cn.data), digits = 3)
-summary(dataset$seq.data[,-(6:7)]) # note that all mut.id are NA's since there were no mutations
+fixSmry(dataset$seq.data[,-(6:7)], character.method = NULL)
+## note that all mut.id are NA's since there were no mutations
 
 plotTumorData(object, dataset)
 

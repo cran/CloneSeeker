@@ -1,5 +1,5 @@
 
-R version 4.4.3 (2025-02-28 ucrt) -- "Trophy Case"
+R version 4.5.2 (2025-10-31 ucrt) -- "[Not] Part in a Rumble"
 Copyright (C) 2025 The R Foundation for Statistical Computing
 Platform: x86_64-w64-mingw32/x64
 
@@ -19,6 +19,19 @@ Type 'q()' to quit R.
 +   stop("You need to update 'CloneSeeker'.")
 + }
 > library("CloneSeeker")
+> 
+> fixSmry <- function(X, D = NULL, ...) {
++   if (!is.null(D)) {
++     S <- summary(X, digits = D, ...)
++   } else {
++     S <- summary(X, ...)
++   }
++   W <- grep("NA's", S)
++   if (any(W)) S[W] <- gsub("NA's", "NAs", S[W])
++   names(S) <- gsub("NA's", "NAs", names(S))
++   S
++ }
+> 
 > 
 > psiSets <- list(c(1),                     # only one clone
 +                 c(0.7, 0.3),              # two clones
@@ -124,16 +137,23 @@ Working on set J = 3
 +     cat("eta:\n")
 +     print(data.frame(etaA = ra$etaA, etaB = ra$etaB))
 +     cat("indices:\n")
-+     print(lapply(ra$indices, summary))
++     print(lapply(ra$indices, function(X) {
++       if (length(X) == 0) {
++         cat("Empty.\n")
++       } else {
++         summary(X)
++       }
++     }))
 +     cat("filtered data:\nMutations:\n")
-+     print(summary(ra$filtered.data$mutdata.filt))
++     print(summary(ra$filtered.data$mutdata.filt, character.method = NULL))
 +     if (J != 5) {
 +       cat("CNVs:\n")
-+       print(summary(as.matrix(ra$filtered.data$cndata.filt), digits = 2))
++       print(summary(as.matrix(ra$filtered.data$cndata.filt),
++                     digits = 2, character.method = NULL))
 +     }
-+     print(summary(ra$mutated))
++     print(fixSmry(ra$mutated))
 +     cat("posteriors\n")
-+     print(summary(ra$psiPosts))
++     print(fixSmry(ra$psiPosts))
 +   }
 + }
 
@@ -154,13 +174,13 @@ eta:
 3    1    0
 4    2    1
 indices:
+Empty.
 $indices.cn
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
    60.0   114.8   186.0   170.2   241.5   249.0 
 
 $mutids.filt
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-                                                
+NULL
 
 filtered data:
 Mutations:
@@ -193,7 +213,7 @@ CNVs:
  Mean   :0.49750   Mean   :2077  
  3rd Qu.:0.99223   3rd Qu.:2172  
  Max.   :0.99892   Max.   :2747  
-   Mode    NA's 
+   Mode     NAs 
 logical       1 
 posteriors
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -271,4 +291,4 @@ posteriors
 > 
 > proc.time()
    user  system elapsed 
-  57.25    1.23   58.48 
+  32.23    0.46   32.71 

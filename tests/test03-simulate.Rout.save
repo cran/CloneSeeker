@@ -1,5 +1,5 @@
 
-R version 4.4.3 (2025-02-28 ucrt) -- "Trophy Case"
+R version 4.5.2 (2025-10-31 ucrt) -- "[Not] Part in a Rumble"
 Copyright (C) 2025 The R Foundation for Statistical Computing
 Platform: x86_64-w64-mingw32/x64
 
@@ -16,6 +16,18 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 Type 'q()' to quit R.
 
 > library(CloneSeeker)
+> 
+> fixSmry <- function(X, D = NULL, ...) {
++   if (!is.null(D)) {
++     S <- summary(X, digits = D, ...)
++   } else {
++     S <- summary(X, ...)
++   }
++   W <- grep("NA's", S)
++   if (any(W)) S[W] <- gsub("NA's", "NAs", S[W])
++   names(S) <- gsub("NA's", "NAs", names(S))
++   S
++ }
 > 
 > dataPars <- list(snps.seq = 1000000,
 +                  snps.cgh = 600000,
@@ -65,7 +77,7 @@ Type 'q()' to quit R.
 > ### Mutations only? with normal contamination
 > tumor <- Tumor(psis, rounds = 400, nu = 100, pcnv = 0, norm.contam = TRUE)
 > clone <- getClone(tumor, 1)
-> summary(clone$cn)  # why is the parent index missing?
+> fixSmry(clone$cn)  # why is the parent index missing?
       chr             start                end                  A    
  Min.   : 1.000   Min.   :        1   Min.   :   735239   Min.   :1  
  1st Qu.: 4.000   1st Qu.: 50450954   1st Qu.: 62622068   1st Qu.:1  
@@ -81,9 +93,9 @@ Type 'q()' to quit R.
  Mean   :1   Mean   :214.5   Mean   :NaN  
  3rd Qu.:1   3rd Qu.:321.2   3rd Qu.: NA  
  Max.   :1   Max.   :428.0   Max.   : NA  
-                             NA's   :428  
-> summary(clone$seq) # this looks like a bug to me.
-   Mode    NA's 
+                             NAs   :428   
+> fixSmry(clone$seq) # this looks like a bug to me.
+   Mode     NAs 
 logical       1 
 > 
 > ### CNV and Mutations, without normal contamination
@@ -123,7 +135,7 @@ logical       1
 > ### CNV and Mutations, with normal contamination
 > tumor <- Tumor(psis, rounds = 400, nu = 100, pcnv = 0.5, norm.contam = TRUE)
 > clone <- getClone(tumor, 1)
-> summary(clone$cn)
+> fixSmry(clone$cn)
       chr            start                end                  A    
  Min.   : 1.00   Min.   :        1   Min.   :  1993994   Min.   :1  
  1st Qu.: 4.00   1st Qu.: 44864382   1st Qu.: 65814196   1st Qu.:1  
@@ -139,15 +151,15 @@ logical       1
  Mean   :1   Mean   :141.50   Mean   :NaN  
  3rd Qu.:1   3rd Qu.:211.75   3rd Qu.: NA  
  Max.   :1   Max.   :282.00   Max.   : NA  
-                              NA's   :282  
-> summary(clone$seq) # this looks like a bug to me.
-   Mode    NA's 
+                              NAs   :282   
+> fixSmry(clone$seq) # this looks like a bug to me.
+   Mode     NAs 
 logical       1 
 > 
 > ### CNV-only, with normal contamination
 > tumor <- Tumor(psis, rounds = 400, nu = 0, pcnv = 1, norm.contam = TRUE) 
 > clone <- getClone(tumor, 1)
-> summary(clone$cn)
+> fixSmry(clone$cn)
       chr             start                end                  A    
  Min.   : 1.000   Min.   :        1   Min.   :   967296   Min.   :1  
  1st Qu.: 4.000   1st Qu.: 51624945   1st Qu.: 67372594   1st Qu.:1  
@@ -163,7 +175,7 @@ logical       1
  Mean   :1   Mean   :170.50   Mean   :NaN  
  3rd Qu.:1   3rd Qu.:255.25   3rd Qu.: NA  
  Max.   :1   Max.   :340.00   Max.   : NA  
-                              NA's   :340  
+                              NAs   :340   
 > summary(clone$seq) # this is correct
 Length  Class   Mode 
      0   NULL   NULL 
@@ -234,15 +246,15 @@ $seq.data
  Mean   :1.002   Mean   :1.004   Mean   :1695  
  3rd Qu.:1.007   3rd Qu.:1.007   3rd Qu.:1920  
  Max.   :1.594   Max.   :1.620   Max.   :2714  
-> summary(dataset$seq.data[,-(6:7)]) # note that all mut.id are NA's since there were no mutations
-      chr              seg            mut.id        refCounts     
- Min.   : 1.000   Min.   :  1.0   Min.   : NA     Min.   : 10.00  
- 1st Qu.: 4.000   1st Qu.: 88.0   1st Qu.: NA     1st Qu.: 60.00  
- Median : 9.000   Median :177.0   Median : NA     Median : 70.00  
- Mean   : 9.638   Mean   :177.1   Mean   :NaN     Mean   : 69.71  
- 3rd Qu.:14.000   3rd Qu.:265.0   3rd Qu.: NA     3rd Qu.: 79.00  
- Max.   :24.000   Max.   :354.0   Max.   : NA     Max.   :148.00  
-                                  NA's   :1e+06                   
+> fixSmry(dataset$seq.data[,-(6:7)], character.method = NULL)
+      chr              seg            mut.id       refCounts     
+ Min.   : 1.000   Min.   :  1.0   Min.   : NA    Min.   : 10.00  
+ 1st Qu.: 4.000   1st Qu.: 88.0   1st Qu.: NA    1st Qu.: 60.00  
+ Median : 9.000   Median :177.0   Median : NA    Median : 70.00  
+ Mean   : 9.638   Mean   :177.1   Mean   :NaN    Mean   : 69.71  
+ 3rd Qu.:14.000   3rd Qu.:265.0   3rd Qu.: NA    3rd Qu.: 79.00  
+ Max.   :24.000   Max.   :354.0   Max.   : NA    Max.   :148.00  
+                                  NAs   :1e+06                   
    varCounts         status         
  Min.   : 12.00   Length:1000000    
  1st Qu.: 61.00   Class :character  
@@ -251,10 +263,11 @@ $seq.data
  3rd Qu.: 80.00                     
  Max.   :170.00                     
                                     
+> ## note that all mut.id are NA's since there were no mutations
 > 
 > plotTumorData(object, dataset)
 > 
 > 
 > proc.time()
    user  system elapsed 
-  21.17    0.73   21.75 
+  12.18    0.35   12.46 
