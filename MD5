@@ -1,4 +1,4 @@
-d35b93926b4a15b184bc6f450246cd0c *DESCRIPTION
+b9bfa7f8717b675f30848049d70f8d50 *DESCRIPTION
 984ea7d75cb03e2d4800c86bc07b47aa *NAMESPACE
 b3170f2c3ca94d1d863b9f5f52f88fb6 *R/00-generics.R
 33a16ce7dc7fe041c86c2af048e9f81a *R/01-cloneMaker.R
@@ -6,9 +6,9 @@ b3170f2c3ca94d1d863b9f5f52f88fb6 *R/00-generics.R
 958179530323b5fec125dde65461ea0c *R/03-utlilities.R
 031af709d85b3d2ec759eab39e0eb45f *R/04-algorithm.R
 6f2c5f09fb9067c9e5e1f934029731f0 *R/oldNames.R
-78a69e5fa7973225a792bc3ddb784a55 *R/sysdata.rda
+6795c0f280edd0307f6b39b370272f77 *R/sysdata.rda
 7b79a5be234d5b2d1c66a2c21d6084f4 *TODO
-f372de6bc95b3c5f52acb1cecfa3106b *build/vignette.rds
+4d003a7df0541759d9fe20e8fb7454a4 *build/vignette.rds
 56228c9a5f679436321e11e6d8ceb811 *inst/auxiliary/README.md
 4a15fcf4afa7c063918f36f4eeee8268 *inst/auxiliary/assessing.R
 5d77ceac66948c92b8978e67502dd4ba *inst/auxiliary/chlens.txt
@@ -19,9 +19,9 @@ d5fc7a5959ac55ab59ca250e534da5d0 *inst/auxiliary/cnv_survival.R
 791bf639196180080f3d8a7dd1344a10 *inst/auxiliary/running.R
 cc7f5cc34c6d4e92a5b45a009d07fa29 *inst/auxiliary/simgen.R
 5f9113d284ca409bae247995c5115b04 *inst/auxiliary/stash.Rda
-f25713fc602c2599c507e8b344e8d918 *inst/doc/CloneSeeker.R
+188ea378f42d0406fe0854f5b026c90b *inst/doc/CloneSeeker.R
 c055ef2b2ed2b58631c9c56cdbcdda00 *inst/doc/CloneSeeker.Rnw
-a62cd344ad93bac9e4056519f73a3638 *inst/doc/CloneSeeker.pdf
+39f5fe1b61c8ab36d0a691808948f178 *inst/doc/CloneSeeker.pdf
 b784a00b476617a2567071c8be8f51ae *man/01-simplex.Rd
 d34f0520983f75642b0cd3f9d649448c *man/02-WeightVector.Rd
 1edaf75405eb7b017658e576b5b90c81 *man/03-Tumor.Rd
